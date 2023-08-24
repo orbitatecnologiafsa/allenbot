@@ -1,0 +1,17 @@
+{
+  "name": "projeto-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "robo.js",
+  "scripts": {
+    "start": "node ./src/robo.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wppconnect-team/wppconnect": "^1.27.3",
+    "firebase-admin": "^11.9.0",
+    "readline-sync": "^1.4.10"
+  }
+}

@@ -1,0 +1,19 @@
+2023/08/24-11:29:01.243 2914 Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\allenbot\tokens\whatsbot\Default\Local Storage\leveldb/MANIFEST-000001
+2023/08/24-11:29:01.244 2914 Recovering log #20
+2023/08/24-11:29:01.246 2914 (ignoring error) C:\Users\orbita\Desktop\Chatbot\allenbot\tokens\whatsbot\Default\Local Storage\leveldb/000020.log: dropping 14679 bytes; Corruption: checksum mismatch
+2023/08/24-11:29:01.246 2914 Reusing old log C:\Users\orbita\Desktop\Chatbot\allenbot\tokens\whatsbot\Default\Local Storage\leveldb/000020.log 
+2023/08/24-13:03:02.550 2d38 Level-0 table #24: started
+2023/08/24-13:03:02.555 2d38 Level-0 table #24: 10776 bytes OK
+2023/08/24-13:03:02.561 2d38 Delete type=0 #20
+2023/08/24-15:21:02.613 2d38 Level-0 table #26: started
+2023/08/24-15:21:02.621 2d38 Level-0 table #26: 10019 bytes OK
+2023/08/24-15:21:02.624 2d38 Delete type=0 #23
+2023/08/24-15:21:02.625 2d38 Compacting 4@0 + 1@1 files
+2023/08/24-15:21:02.632 2d38 Generated table #27@0: 11 keys, 850 bytes
+2023/08/24-15:21:02.632 2d38 Compacted 4@0 + 1@1 files => 850 bytes
+2023/08/24-15:21:02.634 2d38 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/08/24-15:21:02.634 2d38 Delete type=2 #17
+2023/08/24-15:21:02.635 2d38 Delete type=2 #19
+2023/08/24-15:21:02.635 2d38 Delete type=2 #21
+2023/08/24-15:21:02.635 2d38 Delete type=2 #24
+2023/08/24-15:21:02.635 2d38 Delete type=2 #26
