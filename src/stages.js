@@ -19,7 +19,7 @@ let dataGroup = {};
 
 async function stages(client, message, userdata) {
   if (!userdata['stage']) {
-    await sendDelayedMessage(client, message.from, 'Bem vindo ao allenbot\n1- Liberar visitante\n2- Liberação em grupo\n3- sair', 1000);
+    await sendDelayedMessage(client, message.from, 'Bem vindo ao allenbot\n1 - Liberar visitante\n2 - Liberação em grupo\n3 - Cancelar Liberação\n4 - Sair', 1000);
     console.log(message.body);
     userdata['stage'] = 'option';
   } else if (userdata['stage'] === 'option') {
@@ -33,11 +33,12 @@ async function stages(client, message, userdata) {
       else if (message.body === '2') {
         data['TipoLiberacao'] = 'Grupo';
         console.log(message.body);
-        
         console.log(message.body);
         userdata['stage'] = 'ask_grupo_qtd';
-      } else if (message.body === '3') {
+      } else if (message.body === '4') {
         userdata['stage'] = null; // encerra
+      } else if (message.body === '3') {
+        userdata['stage'] = 'cancelamentoLiberacao';
       } else {
         await sendDelayedMessage(client, message.from, 'Opção inválida. Por favor, escolha uma opção válida.', 1000);
       }
@@ -45,7 +46,21 @@ async function stages(client, message, userdata) {
       await sendWppMessage(client, message.from, 'Você não é cadastrado');
       userdata['stage'] = null;
     }
-  } else if (userdata['stage'] === 'nome') {
+  } else if (userdata['stage'] === 'cancelamentoLiberacao') {
+    console.log('tou aqui '+ userdata['stage']);
+    await sendDelayedMessage(client, message.from, 'Qual codigo você deseja cancelar liberação ?:', 1000);
+    userdata['stage'] = 'conclusaoCancelamento';
+  }
+  else if (userdata['stage'] === 'conclusaoCancelamento') {
+    console.log('tou aqui '+ userdata['stage']);
+    let codRef = message.body;
+    await firebasedb.updateDocumentField(codRef);
+    await sendDelayedMessage(client, message.from, 'Liberação cancelada com sucesso', 1000);
+    userdata['stage'] = null;
+  } 
+  
+  /*===============================Começo do Fluxo======================*/
+  else if (userdata['stage'] === 'nome') {
     console.log(userdata['stage']);
     data['VisitanteNome'] = message.body; // Salvar o nome do visitante
     await sendDelayedMessage(client, message.from, 'Digite seu *CPF* sem pontos e traços:', 1500);
@@ -131,9 +146,16 @@ else if (userdata['stage'] === 'grupo_nome') {
   }
 }
 else if (userdata['stage'] === 'grupo_cpf') {
-  dataGroup['cpf'] = message.body.replace(/[^\d]+/g, '');
-  await sendDelayedMessage(client, message.from, 'Digite o código do seu *condomínio*:', 1000);
-  userdata['stage'] = 'grupo_codigo';
+  let cpfGrupo = message.body
+  if (cpfGrupo.length == 11) {
+    dataGroup['cpf'] = message.body.replace(/[^\d]+/g, '');
+    await sendDelayedMessage(client, message.from, 'Digite o código do seu *condomínio*:', 1000);
+    userdata['stage'] = 'grupo_codigo';
+    
+  } else {
+    sendWppMessage(client, message.from, 'CPF digitado incorretamente, digite apenas os 11 números sem pontos e traços');
+    userdata['stage'] = 'grupo_cpf'
+  }
 }
 else if (userdata['stage'] === 'grupo_codigo') {
   console.log(userdata['stage']);
@@ -181,6 +203,7 @@ else if (userdata['stage'] === 'grupo_codigo') {
 
   userdata['stage'] = null;  // encerra
 }
+
 
   await firebasedb.updateUserStage(userdata['id'], userdata['stage']); // Atualizar o estágio do usuário no Firestore
 }

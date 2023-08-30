@@ -1,3 +1,2 @@
-2023/08/24-11:29:02.745 287c Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\allenbot\tokens\whatsbot\Default\File System\Origins/MANIFEST-000001
-2023/08/24-11:29:02.746 287c Recovering log #3
-2023/08/24-11:29:02.746 287c Reusing old log C:\Users\orbita\Desktop\Chatbot\allenbot\tokens\whatsbot\Default\File System\Origins/000003.log 
+2023/08/29-18:08:51.215 1a04 Creating DB C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\File System\Origins since it was missing.
+2023/08/29-18:08:51.234 1a04 Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\File System\Origins/MANIFEST-000001

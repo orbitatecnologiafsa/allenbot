@@ -1,4 +1,11 @@
 const firebasedb = require('./firebase.js')
+const http = require('http');
+
+// http.createServer((req, res) => {
+//     res.write('Salve')
+//     res.end()
+// }).listen(8080)
+
 /*async function stages(client, message, userdata) {
   let data = {
     nome: userdata['nome'] || '',
@@ -184,15 +191,7 @@ x(cnpj); */
 // }
 
 
-var teste = 'Joao-Pedro, Fernando, Nadson'
-var zzz = teste.replace(/[\s-]+/g, "")
-console.log(zzz);
-var listaTeste = zzz.split(',')
-console.log(listaTeste);
-console.log(listaTeste.length);
-for (let i = 0; i < listaTeste.length; i++) {
-  const element = listaTeste[i];
-  console.log('Foi salvo no banco o nome ' + element);
-}
+
 // var listaTeste = teste.split(',')
 // console.log(listaTeste);
+

@@ -1,3 +1,2 @@
-2023/08/24-11:29:02.478 24dc Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\allenbot\tokens\whatsbot\Default\Session Storage/MANIFEST-000001
-2023/08/24-11:29:02.479 24dc Recovering log #3
-2023/08/24-11:29:02.484 24dc Reusing old log C:\Users\orbita\Desktop\Chatbot\allenbot\tokens\whatsbot\Default\Session Storage/000003.log 
+2023/08/29-18:08:48.932 1a04 Creating DB C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Session Storage since it was missing.
+2023/08/29-18:08:48.947 1a04 Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Session Storage/MANIFEST-000001

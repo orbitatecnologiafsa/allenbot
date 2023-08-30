@@ -204,3 +204,36 @@ exports.SelectMoradorVisitanteNumero = async function (phone) {
       throw error; // Lançar o erro novamente para ser tratado externamente, se necessário
     }
   }
+
+exports.updateDocumentField = async function (codigo) {
+    if (!codigo) {
+        console.error('Código não fornecido');
+        return;
+    }
+
+    try {
+        // Referência para a coleção onde você quer procurar o documento
+        const collectionRef = db.collection('visitante-morador');
+
+        // Procure o documento que possui o campo 'codigo' igual ao fornecido
+        const snapshot = await collectionRef.where('codigoGerado', '==', codigo).limit(1).get();
+
+        if (snapshot.empty) {
+            console.error('Documento não encontrado');
+            return;
+        }
+
+        // Pegue o ID do primeiro documento retornado
+        const docId = snapshot.docs[0].id;
+
+        // Atualize o campo desejado para "true"
+        await collectionRef.doc(docId).delete();
+
+        console.log('Documento atualizado com sucesso');
+    } catch (error) {
+        console.error('Erro ao atualizar o documento:', error);
+    }
+}
+
+
+  
