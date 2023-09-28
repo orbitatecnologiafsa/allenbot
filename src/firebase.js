@@ -14,15 +14,30 @@ exports.save = async function (user) {
     return user;
 }
 
+// exports.updateStatusCode = async function (phone, codigoGerado, status) {
+//   const docRef = db.collection('visitante-morador').doc(phone);
+//   await docRef.update({
+//     'codigoGerado': codigoGerado,
+//     'CodigoStatus': status
+//   });
+// }
+
+
 exports.updateUserStage = async function(userId, stage) {
-    try {
-      const userRef = db.collection('visitante-morador').doc(userId);
-      await userRef.update({ stage: stage || null }); // Retorna true quando a atualização é concluída com sucesso
-    } catch (error) {
-      console.log("Erro ao atualizar o estágio do usuário:", error);
-      throw error;
+  const userRef = db.collection('visitante-morador').doc(userId);
+
+  await db.runTransaction(async (transaction) => {
+    const userDoc = await transaction.get(userRef);
+    if (!userDoc.exists) {
+      throw new Error("User does not exist!");
     }
-  }
+
+    transaction.update(userRef, { stage: stage || null });
+  }).catch((error) => {
+    console.log("Erro ao atualizar o estágio do usuário:", error);
+    throw error;
+  });
+}
 
   exports.updateUserStageNull = async function(userId, stage) {
     try {

@@ -1,6 +1,7 @@
 const wppconnect = require('@wppconnect-team/wppconnect');
 const firebasedb = require('./firebase.js');
-const stages = require('./stages');
+const { sendWppMessage, stages } = require('./stages');
+let timeout; // Defina isso no escopo global do seu arquivo
 
 wppconnect.create({
   session: 'whatsbot',
@@ -9,9 +10,15 @@ wppconnect.create({
 })
   .then((client) => {
     client.onMessage(async (message) => {
+      if (timeout) {
+        clearTimeout(timeout); // Cancela o temporizador atual se ele existir
+      }
       console.log('Mensagem digitada pelo usuário: ' + message.body);
       console.log('Confere1');
       await queryUserByPhone(client, message);
+      timeout = setTimeout(() => {
+        forceEndConversation(client, message.from);
+      }, 120000);
     });
   })
   .catch((error) => console.log(error));
@@ -36,13 +43,14 @@ async function saveUser(message) {
   return newUser;
 }
 
+async function forceEndConversation(client, recipient) {
+  await sendWppMessage(client, recipient, "Você demorou muito para responder. Por favor, comece a conversa novamente.");
+  let userdata = await firebasedb.queryByPhone(recipient.replace(/[^\d]+/g, ''));
+  if (userdata) {
+      await firebasedb.updateUserStage(userdata['id'], null);
+  }
+}
 
-
-
-
-
-
-
-
-
-
+module.exports = {
+  forceEndConversation
+};

@@ -1,11 +1,18 @@
 const firebasedb = require('./firebase.js');
 
 
-let sela = '000651651'
-let validationCond = firebasedb.getCondominio(sela);
 
-if (validationCond == true) {
-    console.log('deu certo');
-} else {
-    console.log('kkk deu nada');
+
+function contagem(i) {
+    console.log(i);
+}
+
+for (let i = 0; i < 1000; i++) {
+    setTimeout(contagem(i), 1000);
+
+    if (i>= 1000) {
+        continue
+    } else{
+        clearTimeout()
+    }
 }
