@@ -1,3 +1,105 @@
-2023/09/28-11:11:53.089 383c Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Local Storage\leveldb/MANIFEST-000001
-2023/09/28-11:11:53.090 383c Recovering log #395
-2023/09/28-11:11:53.095 383c Reusing old log C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Local Storage\leveldb/000395.log 
+2023/10/02-13:55:00.334 1a54 Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Local Storage\leveldb/MANIFEST-000001
+2023/10/02-13:55:00.335 1a54 Recovering log #457
+2023/10/02-13:55:00.337 1a54 Reusing old log C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Local Storage\leveldb/000457.log 
+2023/10/02-14:55:01.758 195c Level-0 table #461: started
+2023/10/02-14:55:01.764 195c Level-0 table #461: 10875 bytes OK
+2023/10/02-14:55:01.770 195c Delete type=0 #457
+2023/10/02-17:13:01.757 195c Level-0 table #463: started
+2023/10/02-17:13:01.762 195c Level-0 table #463: 9888 bytes OK
+2023/10/02-17:13:01.766 195c Delete type=0 #460
+2023/10/02-17:13:01.766 195c Compacting 4@0 + 1@1 files
+2023/10/02-17:13:01.771 195c Generated table #464@0: 73 keys, 4545 bytes
+2023/10/02-17:13:01.772 195c Compacted 4@0 + 1@1 files => 4545 bytes
+2023/10/02-17:13:01.775 195c compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/10/02-17:13:01.775 195c Delete type=2 #454
+2023/10/02-17:13:01.776 195c Delete type=2 #456
+2023/10/02-17:13:01.776 195c Delete type=2 #458
+2023/10/02-17:13:01.776 195c Delete type=2 #461
+2023/10/02-17:13:01.776 195c Delete type=2 #463
+2023/10/02-19:31:01.756 195c Level-0 table #466: started
+2023/10/02-19:31:01.784 195c Level-0 table #466: 9930 bytes OK
+2023/10/02-19:31:01.788 195c Delete type=0 #462
+2023/10/02-21:49:01.841 195c Level-0 table #468: started
+2023/10/02-21:49:01.846 195c Level-0 table #468: 9938 bytes OK
+2023/10/02-21:49:01.849 195c Delete type=0 #465
+2023/10/03-00:06:02.266 195c Level-0 table #470: started
+2023/10/03-00:06:02.270 195c Level-0 table #470: 10291 bytes OK
+2023/10/03-00:06:02.274 195c Delete type=0 #467
+2023/10/03-02:24:02.290 195c Level-0 table #472: started
+2023/10/03-02:24:02.296 195c Level-0 table #472: 10029 bytes OK
+2023/10/03-02:24:02.300 195c Delete type=0 #469
+2023/10/03-02:24:02.300 195c Compacting 4@0 + 1@1 files
+2023/10/03-02:24:02.305 195c Generated table #473@0: 73 keys, 4594 bytes
+2023/10/03-02:24:02.306 195c Compacted 4@0 + 1@1 files => 4594 bytes
+2023/10/03-02:24:02.308 195c compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/10/03-02:24:02.308 195c Delete type=2 #464
+2023/10/03-02:24:02.308 195c Delete type=2 #466
+2023/10/03-02:24:02.308 195c Delete type=2 #468
+2023/10/03-02:24:02.308 195c Delete type=2 #470
+2023/10/03-02:24:02.308 195c Delete type=2 #472
+2023/10/03-04:41:02.297 195c Level-0 table #475: started
+2023/10/03-04:41:02.301 195c Level-0 table #475: 9895 bytes OK
+2023/10/03-04:41:02.305 195c Delete type=0 #471
+2023/10/03-06:02:02.302 195c Level-0 table #477: started
+2023/10/03-06:02:02.307 195c Level-0 table #477: 10663 bytes OK
+2023/10/03-06:02:02.311 195c Delete type=0 #474
+2023/10/03-08:20:02.859 195c Level-0 table #479: started
+2023/10/03-08:20:02.864 195c Level-0 table #479: 10150 bytes OK
+2023/10/03-08:20:02.867 195c Delete type=0 #476
+2023/10/03-10:38:03.025 195c Level-0 table #481: started
+2023/10/03-10:38:03.033 195c Level-0 table #481: 10161 bytes OK
+2023/10/03-10:38:03.038 195c Delete type=0 #478
+2023/10/03-10:38:03.038 195c Compacting 4@0 + 1@1 files
+2023/10/03-10:38:03.055 195c Generated table #482@0: 73 keys, 4596 bytes
+2023/10/03-10:38:03.055 195c Compacted 4@0 + 1@1 files => 4596 bytes
+2023/10/03-10:38:03.058 195c compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/10/03-10:38:03.060 195c Delete type=2 #473
+2023/10/03-10:38:03.063 195c Delete type=2 #475
+2023/10/03-10:38:03.064 195c Delete type=2 #477
+2023/10/03-10:38:03.064 195c Delete type=2 #479
+2023/10/03-10:38:03.064 195c Delete type=2 #481
+2023/10/03-12:56:03.068 604 Level-0 table #484: started
+2023/10/03-12:56:03.076 604 Level-0 table #484: 10028 bytes OK
+2023/10/03-12:56:03.080 604 Delete type=0 #480
+2023/10/03-15:14:03.169 195c Level-0 table #486: started
+2023/10/03-15:14:03.184 195c Level-0 table #486: 10149 bytes OK
+2023/10/03-15:14:03.202 195c Delete type=0 #483
+2023/10/03-17:32:03.452 195c Level-0 table #488: started
+2023/10/03-17:32:03.457 195c Level-0 table #488: 10171 bytes OK
+2023/10/03-17:32:03.461 195c Delete type=0 #485
+2023/10/03-19:48:03.519 195c Level-0 table #490: started
+2023/10/03-19:48:03.525 195c Level-0 table #490: 9885 bytes OK
+2023/10/03-19:48:03.529 195c Delete type=0 #487
+2023/10/03-19:48:03.529 604 Compacting 4@0 + 1@1 files
+2023/10/03-19:48:03.535 604 Generated table #491@0: 73 keys, 3745 bytes
+2023/10/03-19:48:03.535 604 Compacted 4@0 + 1@1 files => 3745 bytes
+2023/10/03-19:48:03.537 604 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/10/03-19:48:03.538 604 Delete type=2 #482
+2023/10/03-19:48:03.538 604 Delete type=2 #484
+2023/10/03-19:48:03.539 604 Delete type=2 #486
+2023/10/03-19:48:03.539 604 Delete type=2 #488
+2023/10/03-19:48:03.539 604 Delete type=2 #490
+2023/10/03-22:04:03.606 195c Level-0 table #493: started
+2023/10/03-22:04:03.611 195c Level-0 table #493: 9905 bytes OK
+2023/10/03-22:04:03.614 195c Delete type=0 #489
+2023/10/04-00:20:03.690 195c Level-0 table #495: started
+2023/10/04-00:20:03.695 195c Level-0 table #495: 9877 bytes OK
+2023/10/04-00:20:03.698 195c Delete type=0 #492
+2023/10/04-02:36:03.979 195c Level-0 table #497: started
+2023/10/04-02:36:03.983 195c Level-0 table #497: 10046 bytes OK
+2023/10/04-02:36:03.987 195c Delete type=0 #494
+2023/10/04-04:52:04.068 195c Level-0 table #499: started
+2023/10/04-04:52:04.073 195c Level-0 table #499: 9966 bytes OK
+2023/10/04-04:52:04.076 195c Delete type=0 #496
+2023/10/04-04:52:04.076 195c Compacting 4@0 + 1@1 files
+2023/10/04-04:52:04.082 195c Generated table #500@0: 73 keys, 3745 bytes
+2023/10/04-04:52:04.082 195c Compacted 4@0 + 1@1 files => 3745 bytes
+2023/10/04-04:52:04.084 195c compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/10/04-04:52:04.085 195c Delete type=2 #491
+2023/10/04-04:52:04.085 195c Delete type=2 #493
+2023/10/04-04:52:04.086 195c Delete type=2 #495
+2023/10/04-04:52:04.086 195c Delete type=2 #497
+2023/10/04-04:52:04.086 195c Delete type=2 #499
+2023/10/04-07:08:04.158 195c Level-0 table #502: started
+2023/10/04-07:08:04.163 195c Level-0 table #502: 9852 bytes OK
+2023/10/04-07:08:04.167 195c Delete type=0 #498

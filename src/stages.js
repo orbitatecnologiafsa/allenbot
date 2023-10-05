@@ -4,7 +4,7 @@ const { forceEndConversation } = require("./robo.js");
 
 const userStates = new Map();
 
-async function getUserState(phone) {
+function getUserState(phone) {
   if (!userStates.has(phone)) {
     userStates.set(phone, {});
   }
@@ -14,7 +14,7 @@ async function getUserState(phone) {
 //   await firebasedb.updateStatusCode(phone, codigoGerado, false);
 // }
 
-async function updateUserState(phone, data) {
+function updateUserState(phone, data) {
   const currentState = getUserState(phone);
   const newState = { ...currentState, ...data };
   userStates.set(phone, newState);
