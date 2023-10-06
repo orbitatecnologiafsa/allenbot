@@ -6,7 +6,9 @@ let timeout; // Defina isso no escopo global do seu arquivo
 wppconnect.create({
   session: 'whatsbot',
   autoClose: false,
-  puppeteerOptions: { args: ['--no-sandbox'] }
+  puppeteerOptions: {
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process']
+ }
 })
   .then((client) => {
     client.onMessage(async (message) => {
