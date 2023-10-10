@@ -41,7 +41,7 @@ async function stages(client, message, userdata) {
     await sendDelayedMessage(
       client,
       message.from,
-      "Bem vindo ao allenbot\n1 - Liberar visitante\n2 - Liberação em grupo\n3 - Cancelar Liberação\n4 - Sair",
+      "🏢 Bem-vindo ao AllenBot! 🏢\n\n\n📅 Por que usar o AllenBot? \n\n- Faça a liberação de visitas há qualquer momento, de onde estiver.\n- Receba confirmações instantâneas.\n- Informe detalhes da sua visita, tornando tudo mais transparente e seguro.\n\n💡 Dicas rápidas:\n1. Ao realizar o agendamento, forneça informações corretas e detalhadas.\n2. Confira sempre a data e o horário marcados.\n3. Caso necessite cancelar ou alterar, faça isso com antecedência para manter a organização.\n\n🏢 Menu de Ações do AllenBot 🏢\n\nPor favor, selecione a opção desejada digitando o número correspondente:\n\n1. Liberar Visita 🚶‍♂️\n  - Permita a entrada de um visitante individualmente.\n\n2. Liberar Visitas em Grupo 🚶‍♂️🚶‍♀️\n  - Autorize a entrada de um conjunto de visitantes ao mesmo tempo.\n3. Cancelar Liberação ❌\n  - Caso tenha mudado de ideia ou cometido um erro, cancele a liberação do(s) um visitante específico.\n4. Encerrar Atendimento 🔚\n  - Finalize sua interação com o AllenBot.\n\nDigite o número da ação desejada para prosseguir. Se precisar de mais ajuda, estamos à disposição!",
       1000
     );
     console.log(message.body);
