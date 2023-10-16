@@ -41,8 +41,14 @@ async function stages(client, message, userdata) {
     await sendDelayedMessage(
       client,
       message.from,
-      "🏢 Bem-vindo ao AllenBot! 🏢\n\n\n📅 Por que usar o AllenBot? \n\n- Faça a liberação de visitas há qualquer momento, de onde estiver.\n- Receba confirmações instantâneas.\n- Informe detalhes da sua visita, tornando tudo mais transparente e seguro.\n\n💡 Dicas rápidas:\n1. Ao realizar o agendamento, forneça informações corretas e detalhadas.\n2. Confira sempre a data e o horário marcados.\n3. Caso necessite cancelar ou alterar, faça isso com antecedência para manter a organização.\n\n🏢 Menu de Ações do AllenBot 🏢\n\nPor favor, selecione a opção desejada digitando o número correspondente:\n\n1. Liberar Visita 🚶‍♂️\n  - Permita a entrada de um visitante individualmente.\n\n2. Liberar Visitas em Grupo 🚶‍♂️🚶‍♀️\n  - Autorize a entrada de um conjunto de visitantes ao mesmo tempo.\n3. Cancelar Liberação ❌\n  - Caso tenha mudado de ideia ou cometido um erro, cancele a liberação do(s) um visitante específico.\n4. Encerrar Atendimento 🔚\n  - Finalize sua interação com o AllenBot.\n\nDigite o número da ação desejada para prosseguir. Se precisar de mais ajuda, estamos à disposição!",
+      "🏢 Bem-vindo ao AllenBot! 🏢\n\n\n📅 Por que usar o AllenBot? \n\n- Faça a liberação de visitas há qualquer momento, de onde estiver.\n- Receba confirmações instantâneas.\n- Informe detalhes da sua visita, tornando tudo mais transparente e seguro.\n\n💡 Dicas rápidas:\n*1*. Ao realizar o agendamento, forneça informações corretas e detalhadas.\n*2*. Confira sempre a data e o horário marcados.\n*3*. Caso necessite cancelar ou alterar, faça isso com antecedência para manter a organização.",
       1000
+    );
+    await sendDelayedMessage(
+      client,
+      message.from,
+      "🏢 Menu de Ações do AllenBot 🏢\n\nPor favor, selecione a opção desejada digitando o *número correspondente*:\n\n*1. Liberar Visita* 🚶‍♂️\n  - Permita a entrada de um visitante individualmente.\n\n*2. Liberar Visitas em Grupo* 🚶‍♂️🚶‍♀️\n  - Autorize a entrada de um conjunto de visitantes ao mesmo tempo.\n\n*3. Cancelar Liberação* ❌\n  - Caso tenha mudado de ideia ou cometido um erro, cancele a liberação do(s) um visitante específico.\n\n*4. Encerrar Atendimento* 🔚\n  - Finalize sua interação com o AllenBot.\n\nDigite o número da ação desejada para prosseguir. Se precisar de mais ajuda, estamos à disposição!",
+      1003
     );
     console.log(message.body);
     userdata["stage"] = "option";
@@ -99,14 +105,24 @@ async function stages(client, message, userdata) {
   } else if (userdata["stage"] === "conclusaoCancelamento") {
     console.log("tou aqui " + userdata["stage"]);
     let codRef = message.body;
-    await firebasedb.updateDocumentField(codRef);
-    await sendDelayedMessage(
-      client,
-      message.from,
-      "Liberação cancelada com sucesso",
-      1000
-    );
-    userdata["stage"] = null;
+    const validationCancel = await firebasedb.updateDocumentField(codRef);
+    if (validationCancel) {
+      await sendDelayedMessage(
+        client,
+        message.from,
+        "Liberação cancelada com sucesso",
+        1000
+      );
+      userdata["stage"] = null;
+    } else {
+      await sendDelayedMessage(
+        client,
+        message.from,
+        "Falha no cancelamento, digite o codigo de liberação corretamente por favor",
+        1000
+      );
+      userdata["stage"] = "conclusaoCancelamento";
+    }
   } else if (userdata["stage"] === "nome") {
 
   /*===============================Começo do Fluxo======================*/
@@ -122,23 +138,35 @@ async function stages(client, message, userdata) {
   } else if (userdata["stage"] === "cpf") {
     console.log(userdata["stage"]);
     const cpf = message.body;
-    if (cpf.length == 11) {
-      userState.VisitanteCpf = message.body.replace(/[^\d]+/g, ""); // Salvar o CPF
-      await sendDelayedMessage(
-        client,
-        message.from,
-        "Digite o código do seu *condomínio*:",
-        1500
-      );
-      userdata["stage"] = "cod_Condominio";
+    let validationCPF = await firebasedb.SelectMoradorVisitanteCPF(
+      message.from.replace(/[^\d]+/g, "")
+    );
+    if (validationCPF) {
+      if (cpf.length == 11) {
+        userState.VisitanteCpf = message.body.replace(/[^\d]+/g, ""); // Salvar o CPF
+        await sendDelayedMessage(
+          client,
+          message.from,
+          "Digite o código do seu *condomínio*:",
+          1500
+        );
+        userdata["stage"] = "cod_Condominio";
+      } else {
+        sendWppMessage(
+          client,
+          message.from,
+          "CPF digitado incorretamente, digite apenas os 11 números sem pontos e traços"
+        );
+        userdata["stage"] = "cpf";
+      }
     } else {
       sendWppMessage(
         client,
         message.from,
-        "CPF digitado incorretamente, digite apenas os 11 números sem pontos e traços"
+        "CPF Não cadastrado, entre em contato com o sindico para mais informações"
       );
       userdata["stage"] = "cpf";
-    }
+    } 
   } else if (userdata["stage"] === "cod_Condominio") {
     console.log(userdata["stage"]);
     userState.cod_condominio1 = message.body; // Salvar o código do condomínio

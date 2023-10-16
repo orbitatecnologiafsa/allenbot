@@ -122,7 +122,7 @@ exports.getCnpj = async function (cnpj) {
 
 
 
-exports.SelectMoradorVisitante1 = async function (phone) {
+exports.SelectMoradorVisitanteCPF = async function (phone) {
     try {
         const moradorRef = db.collection('moradores');
         const consultaMorador = moradorRef.where('whatsapp', '==', phone).limit(1).get();
@@ -235,7 +235,7 @@ exports.updateDocumentField = async function (codigo) {
 
         if (snapshot.empty) {
             console.error('Documento não encontrado');
-            return;
+            return false;
         }
 
         // Pegue o ID do primeiro documento retornado
@@ -245,8 +245,10 @@ exports.updateDocumentField = async function (codigo) {
         await collectionRef.doc(docId).delete();
 
         console.log('Documento atualizado com sucesso');
+        return true;
     } catch (error) {
         console.error('Erro ao atualizar o documento:', error);
+        return false;
     }
 }
 
