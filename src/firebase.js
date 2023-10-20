@@ -14,15 +14,6 @@ exports.save = async function (user) {
     return user;
 }
 
-// exports.updateStatusCode = async function (phone, codigoGerado, status) {
-//   const docRef = db.collection('visitante-morador').doc(phone);
-//   await docRef.update({
-//     'codigoGerado': codigoGerado,
-//     'CodigoStatus': status
-//   });
-// }
-
-
 exports.updateUserStage = async function(userId, stage) {
   const userRef = db.collection('visitante-morador').doc(userId);
 
@@ -122,7 +113,7 @@ exports.getCnpj = async function (cnpj) {
 
 
 
-exports.SelectMoradorVisitanteCPF = async function (phone) {
+exports.SelectMoradorVisitante1 = async function (phone) {
     try {
         const moradorRef = db.collection('moradores');
         const consultaMorador = moradorRef.where('whatsapp', '==', phone).limit(1).get();
@@ -240,6 +231,7 @@ exports.updateDocumentField = async function (codigo) {
 
         // Pegue o ID do primeiro documento retornado
         const docId = snapshot.docs[0].id;
+        console.log(docId);
 
         // Atualize o campo desejado para "true"
         await collectionRef.doc(docId).delete();
@@ -248,7 +240,7 @@ exports.updateDocumentField = async function (codigo) {
         return true;
     } catch (error) {
         console.error('Erro ao atualizar o documento:', error);
-        return false;
+        return false
     }
 }
 

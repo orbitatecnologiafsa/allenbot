@@ -10,9 +10,6 @@ function getUserState(phone) {
   }
   return userStates.get(phone);
 }
-// async  function invalidarCodigo(phone, codigoGerado) {
-//   await firebasedb.updateStatusCode(phone, codigoGerado, false);
-// }
 
 function updateUserState(phone, data) {
   const currentState = getUserState(phone);
@@ -72,7 +69,13 @@ async function stages(client, message, userdata) {
         console.log(message.body);
         userdata["stage"] = "ask_grupo_qtd";
       } else if (message.body === "3") {
-        userdata["stage"] = "cancelamentoLiberacao";
+        await sendDelayedMessage(
+          client,
+          message.from,
+          "Qual codigo você deseja cancelar liberação ?:",
+          1000
+        );
+        userdata["stage"] = "conclusaoCancelamento";
       } else if (message.body === "4") {
         await sendDelayedMessage(
           client,
@@ -93,15 +96,6 @@ async function stages(client, message, userdata) {
       await sendWppMessage(client, message.from, "Você não é cadastrado");
       userdata["stage"] = null;
     }
-  } else if (userdata["stage"] === "cancelamentoLiberacao") {
-    console.log("tou aqui " + userdata["stage"]);
-    await sendDelayedMessage(
-      client,
-      message.from,
-      "Qual codigo você deseja cancelar liberação ?:",
-      1000
-    );
-    userdata["stage"] = "conclusaoCancelamento";
   } else if (userdata["stage"] === "conclusaoCancelamento") {
     console.log("tou aqui " + userdata["stage"]);
     let codRef = message.body;
@@ -138,10 +132,12 @@ async function stages(client, message, userdata) {
   } else if (userdata["stage"] === "cpf") {
     console.log(userdata["stage"]);
     const cpf = message.body;
-    let validationCPF = await firebasedb.SelectMoradorVisitanteCPF(
+    
+    let validationCPF = await firebasedb.SelectMoradorVisitante1(
       message.from.replace(/[^\d]+/g, "")
     );
-    if (validationCPF) {
+    
+    if (validationCPF == cpf) {
       if (cpf.length == 11) {
         userState.VisitanteCpf = message.body.replace(/[^\d]+/g, ""); // Salvar o CPF
         await sendDelayedMessage(
@@ -165,6 +161,7 @@ async function stages(client, message, userdata) {
         message.from,
         "CPF Não cadastrado, entre em contato com o sindico para mais informações"
       );
+      
       userdata["stage"] = "cpf";
     } 
   } else if (userdata["stage"] === "cod_Condominio") {
@@ -192,16 +189,12 @@ async function stages(client, message, userdata) {
         message.from.replace(/[^\d]+/g, "")
       );
       userState.moradorLiberou = dadosMorador; // Salvar os dados do morador que liberou
-      // const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
       const codigoGerado = await generateCode(
         message.from.replace(/[^\d]+/g, "")
       );
       userState.codigoGerado = codigoGerado; // Salvar o código de liberação do visitante
       var StatusCode = true;
       userState.CodigoStatus = StatusCode;
-      // setTimeout(() => {
-      //   invalidarCodigo(phone, codigoGerado);
-      // }, TWENTY_FOUR_HOURS);
       //===========================================================================================
       let dadosCasaMorador = await firebasedb.SelectMoradorVisitante2(
         message.from.replace(/[^\d]+/g, "")
