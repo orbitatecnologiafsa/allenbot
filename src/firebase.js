@@ -211,38 +211,40 @@ exports.SelectMoradorVisitanteNumero = async function (phone) {
     }
   }
 
-exports.updateDocumentField = async function (codigo) {
+  exports.updateDocumentField = async function (codigo, novoCodigoStatus) {
     if (!codigo) {
         console.error('Código não fornecido');
-        return;
+        return false;
     }
 
     try {
         // Referência para a coleção onde você quer procurar o documento
         const collectionRef = db.collection('visitante-morador');
 
-        // Procure o documento que possui o campo 'codigo' igual ao fornecido
-        const snapshot = await collectionRef.where('codigoGerado', '==', codigo).limit(1).get();
+        // Procure todos os documentos que possuem o campo 'codigo' igual ao fornecido
+        const querySnapshot = await collectionRef.where('codigoGerado', '==', codigo).get();
 
-        if (snapshot.empty) {
-            console.error('Documento não encontrado');
+        if (querySnapshot.empty) {
+            console.error('Nenhum documento encontrado');
             return false;
         }
 
-        // Pegue o ID do primeiro documento retornado
-        const docId = snapshot.docs[0].id;
-        console.log(docId);
+        // Percorra todos os documentos correspondentes e atualize o campo 'CodigoStatus'
+        querySnapshot.forEach(async (doc) => {
+            const docId = doc.id;
+            await collectionRef.doc(docId).update({
+                CodigoStatus: novoCodigoStatus
+            });
+        });
 
-        // Atualize o campo desejado para "true"
-        await collectionRef.doc(docId).delete();
-
-        console.log('Documento atualizado com sucesso');
+        console.log('Documentos atualizados com sucesso');
         return true;
     } catch (error) {
-        console.error('Erro ao atualizar o documento:', error);
-        return false
+        console.error('Erro ao atualizar os documentos:', error);
+        return false;
     }
 }
+
 
 
   

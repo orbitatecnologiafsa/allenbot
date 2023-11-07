@@ -99,7 +99,8 @@ async function stages(client, message, userdata) {
   } else if (userdata["stage"] === "conclusaoCancelamento") {
     console.log("tou aqui " + userdata["stage"]);
     let codRef = message.body;
-    const validationCancel = await firebasedb.updateDocumentField(codRef);
+    await firebasedb.updateDocumentField(codRef, false);
+    const validationCancel = await firebasedb.updateDocumentField(codRef, false);
     if (validationCancel) {
       await sendDelayedMessage(
         client,
@@ -107,7 +108,14 @@ async function stages(client, message, userdata) {
         "Liberação cancelada com sucesso",
         1000
       );
-      userdata["stage"] = null;
+      await sendDelayedMessage(
+        client,
+        message.from,
+        "🏢 Menu de Ações do AllenBot 🏢\n\nPor favor, selecione a opção desejada digitando o *número correspondente*:\n\n*1. Liberar Visita* 🚶‍♂️\n  - Permita a entrada de um visitante individualmente.\n\n*2. Liberar Visitas em Grupo* 🚶‍♂️🚶‍♀️\n  - Autorize a entrada de um conjunto de visitantes ao mesmo tempo.\n\n*3. Cancelar Liberação* ❌\n  - Caso tenha mudado de ideia ou cometido um erro, cancele a liberação do(s) um visitante específico.\n\n*4. Encerrar Atendimento* 🔚\n  - Finalize sua interação com o AllenBot.\n\nDigite o número da ação desejada para prosseguir. Se precisar de mais ajuda, estamos à disposição!",
+        1003
+      );
+      console.log(message.body);
+      userdata["stage"] = "option";
     } else {
       await sendDelayedMessage(
         client,
