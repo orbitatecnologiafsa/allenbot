@@ -1,0 +1,69 @@
+2023/11/13-08:45:16.009 66c Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Local Storage\leveldb/MANIFEST-000001
+2023/11/13-08:45:16.016 66c Recovering log #241
+2023/11/13-08:45:16.045 66c Reusing old log C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Local Storage\leveldb/000241.log 
+2023/11/13-09:54:17.667 1114 Level-0 table #246: started
+2023/11/13-09:54:17.672 1114 Level-0 table #246: 11299 bytes OK
+2023/11/13-09:54:17.677 1114 Delete type=0 #241
+2023/11/13-12:21:17.768 1114 Level-0 table #248: started
+2023/11/13-12:21:17.773 1114 Level-0 table #248: 9579 bytes OK
+2023/11/13-12:21:17.779 1114 Delete type=0 #245
+2023/11/13-14:41:18.008 1114 Level-0 table #250: started
+2023/11/13-14:41:18.022 1114 Level-0 table #250: 9900 bytes OK
+2023/11/13-14:41:18.036 1114 Delete type=0 #247
+2023/11/13-17:00:18.017 1114 Level-0 table #252: started
+2023/11/13-17:00:18.023 1114 Level-0 table #252: 9752 bytes OK
+2023/11/13-17:00:18.028 1114 Delete type=0 #249
+2023/11/13-17:00:18.028 1114 Compacting 4@0 + 1@1 files
+2023/11/13-17:00:18.039 1114 Generated table #253@0: 76 keys, 4775 bytes
+2023/11/13-17:00:18.039 1114 Compacted 4@0 + 1@1 files => 4775 bytes
+2023/11/13-17:00:18.041 1114 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/11/13-17:00:18.042 1114 Delete type=2 #243
+2023/11/13-17:00:18.042 1114 Delete type=2 #246
+2023/11/13-17:00:18.042 1114 Delete type=2 #248
+2023/11/13-17:00:18.042 1114 Delete type=2 #250
+2023/11/13-17:00:18.042 1114 Delete type=2 #252
+2023/11/13-19:20:18.075 1114 Level-0 table #255: started
+2023/11/13-19:20:18.080 1114 Level-0 table #255: 9807 bytes OK
+2023/11/13-19:20:18.083 1114 Delete type=0 #251
+2023/11/13-21:38:18.179 1114 Level-0 table #257: started
+2023/11/13-21:38:18.184 1114 Level-0 table #257: 9914 bytes OK
+2023/11/13-21:38:18.187 1114 Delete type=0 #254
+2023/11/13-23:56:18.316 1114 Level-0 table #259: started
+2023/11/13-23:56:18.342 1114 Level-0 table #259: 9972 bytes OK
+2023/11/13-23:56:18.348 1114 Delete type=0 #256
+2023/11/14-02:14:18.380 1114 Level-0 table #261: started
+2023/11/14-02:14:18.385 1114 Level-0 table #261: 9858 bytes OK
+2023/11/14-02:14:18.390 1114 Delete type=0 #258
+2023/11/14-02:14:18.390 1114 Compacting 4@0 + 1@1 files
+2023/11/14-02:14:18.395 1114 Generated table #262@0: 76 keys, 4775 bytes
+2023/11/14-02:14:18.395 1114 Compacted 4@0 + 1@1 files => 4775 bytes
+2023/11/14-02:14:18.399 1114 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/11/14-02:14:18.400 1114 Delete type=2 #253
+2023/11/14-02:14:18.400 1114 Delete type=2 #255
+2023/11/14-02:14:18.401 1114 Delete type=2 #257
+2023/11/14-02:14:18.401 1114 Delete type=2 #259
+2023/11/14-02:14:18.401 1114 Delete type=2 #261
+2023/11/14-04:33:18.455 1114 Level-0 table #264: started
+2023/11/14-04:33:18.460 1114 Level-0 table #264: 9769 bytes OK
+2023/11/14-04:33:18.464 1114 Delete type=0 #260
+2023/11/14-06:52:18.593 1114 Level-0 table #266: started
+2023/11/14-06:52:18.598 1114 Level-0 table #266: 9784 bytes OK
+2023/11/14-06:52:18.602 1114 Delete type=0 #263
+2023/11/14-09:16:18.769 66c Level-0 table #268: started
+2023/11/14-09:16:18.775 66c Level-0 table #268: 9741 bytes OK
+2023/11/14-09:16:18.780 66c Delete type=0 #265
+2023/11/14-11:34:18.833 66c Level-0 table #270: started
+2023/11/14-11:34:18.842 66c Level-0 table #270: 9939 bytes OK
+2023/11/14-11:34:18.848 66c Delete type=0 #267
+2023/11/14-11:34:18.849 66c Compacting 4@0 + 1@1 files
+2023/11/14-11:34:18.854 66c Generated table #271@0: 76 keys, 4020 bytes
+2023/11/14-11:34:18.854 66c Compacted 4@0 + 1@1 files => 4020 bytes
+2023/11/14-11:34:18.858 66c compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/11/14-11:34:18.859 66c Delete type=2 #262
+2023/11/14-11:34:18.859 66c Delete type=2 #264
+2023/11/14-11:34:18.860 66c Delete type=2 #266
+2023/11/14-11:34:18.860 66c Delete type=2 #268
+2023/11/14-11:34:18.861 66c Delete type=2 #270
+2023/11/14-13:51:18.906 1114 Level-0 table #273: started
+2023/11/14-13:51:18.917 1114 Level-0 table #273: 9951 bytes OK
+2023/11/14-13:51:18.929 1114 Delete type=0 #269

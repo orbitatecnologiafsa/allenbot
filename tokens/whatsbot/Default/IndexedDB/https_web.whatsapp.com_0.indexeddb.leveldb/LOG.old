@@ -1,0 +1,21 @@
+2023/10/26-14:45:03.223 500 Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/10/26-14:45:03.223 500 Recovering log #408
+2023/10/26-14:45:03.230 500 Reusing old log C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000408.log 
+2023/10/26-14:50:45.632 158 Level-0 table #415: started
+2023/10/26-14:50:45.689 158 Level-0 table #415: 1232958 bytes OK
+2023/10/26-14:50:45.694 158 Delete type=0 #408
+2023/10/26-14:50:46.888 158 Compacting 1@1 + 8@2 files
+2023/10/26-14:50:47.026 158 Generated table #416@1: 48060 keys, 2310332 bytes
+2023/10/26-14:50:47.103 158 Generated table #417@1: 27297 keys, 2179080 bytes
+2023/10/26-14:50:47.234 158 Generated table #418@1: 97784 keys, 1915108 bytes
+2023/10/26-14:50:47.234 158 Compacted 1@1 + 8@2 files => 6404520 bytes
+2023/10/26-14:50:47.237 158 compacted to: files[ 0 0 3 0 0 0 0 ]
+2023/10/26-14:50:47.238 158 Delete type=2 #387
+2023/10/26-14:50:47.238 158 Delete type=2 #392
+2023/10/26-14:50:47.238 158 Delete type=2 #397
+2023/10/26-14:50:47.238 158 Delete type=2 #402
+2023/10/26-14:50:47.238 158 Delete type=2 #407
+2023/10/26-14:50:47.238 158 Delete type=2 #410
+2023/10/26-14:50:47.238 158 Delete type=2 #411
+2023/10/26-14:50:47.238 158 Delete type=2 #412
+2023/10/26-14:50:47.238 158 Delete type=2 #415
