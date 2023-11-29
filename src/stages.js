@@ -1,6 +1,8 @@
 const firebasedb = require("./firebase.js");
 const generateCode = require("./gerarNumeros.js");
 const { forceEndConversation } = require("./robo.js");
+const qrcode = require("qrcode");
+const fs = require("fs").promises;
 
 const userStates = new Map();
 
@@ -29,7 +31,37 @@ async function sendDelayedMessage(client, recipient, message, delay) {
 async function sendWppMessage(client, sendTo, text) {
   await client.sendText(sendTo, text);
 }
+//GERAÇÃO DE QR CODE
+async function generateQRCode(data) {
+  try {
+    // Gere o QRCode como um Data URL
+    const qrCodeDataURL = await qrcode.toDataURL(data);
 
+    // Salve o Data URL como arquivo temporário
+    const filePath = "./temp-qrcode.png";
+    await fs.writeFile(filePath, qrCodeDataURL.split(";base64,").pop(), {
+      encoding: "base64",
+    });
+
+    return filePath;
+  } catch (error) {
+    console.error("Erro ao gerar QRCode:", error);
+    throw error;
+  }
+}
+
+async function sendQRCodeImage(client, sendTo, filePath) {
+  try {
+    // Envie a imagem do QRCode para o usuário
+    await client.sendImage(sendTo, filePath, "qrcode_image.png", "QRCode de Liberação");
+
+    console.log("QRCode enviado com sucesso.");
+  } catch (error) {
+    console.error("Erro ao enviar imagem:", error);
+    throw error;
+  }
+}
+//GERAÇÃO DE QR CODE
 async function stages(client, message, userdata) {
   const phone = message.from.replace(/[^\d]+/g, "");
   const userState = getUserState(phone);
@@ -208,15 +240,21 @@ async function stages(client, message, userdata) {
         message.from.replace(/[^\d]+/g, "")
       );
       userState.casaMorador = dadosCasaMorador;
-
+      const qrCodeFilePath = await generateQRCode(userState.codigoGerado);
+ 
       var Liberado = false;
       userState.Liberado = Liberado;
-      await sendDelayedMessage(
-        client,
-        message.from,
-        "O código de liberação do visitante é: " + codigoGerado,
-        1000
-      );
+      // await sendDelayedMessage(
+      //   client,
+      //   message.from,
+      //   "O código de liberação do visitante é: " + codigoGerado,
+      //   1000
+      // );
+      await sendQRCodeImage(client, message.from, qrCodeFilePath);
+
+      // Remova o arquivo temporário
+      await fs.unlink(qrCodeFilePath);
+      
       userdata["stage"] = null;
     }
   }
@@ -298,7 +336,7 @@ async function stages(client, message, userdata) {
       sendWppMessage(
         client,
         message.from,
-        "Obrigado, você é do condomínio " + condominio
+        "Obrigado por usar o allenbot, você é morador do condomínio " + condominio
       );
       //===========================================================================================
       let dadosMorador = await firebasedb.SelectMoradorVisitante(
@@ -318,12 +356,17 @@ async function stages(client, message, userdata) {
       userState.casaMorador = dadosCasaMorador;
       var Liberado = false;
       userState.Liberado = Liberado;
-      await sendDelayedMessage(
-        client,
-        message.from,
-        "O código de liberação do visitante é: " + codigoGerado,
-        1000
-      );
+      const qrCodeFilePath = await generateQRCode(userState.codigoGerado);
+      // await sendDelayedMessage(
+      //   client,
+      //   message.from,
+      //   "O código de liberação do visitante é: " + codigoGerado,
+      //   1000
+      // );
+      await sendQRCodeImage(client, message.from, qrCodeFilePath);
+
+      // Remova o arquivo temporário
+      await fs.unlink(qrCodeFilePath);
       userdata["stage"] = null;
     }
     for (let nome of userState.visitantes) {
@@ -350,5 +393,6 @@ async function stages(client, message, userdata) {
 module.exports = {
   sendWppMessage: sendWppMessage,
   stages: stages,
+  sendQRCodeImage: sendQRCodeImage
   // ... e assim por diante para todas as outras funções e variáveis que você deseja exportar.
 };

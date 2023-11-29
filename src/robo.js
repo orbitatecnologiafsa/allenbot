@@ -1,6 +1,6 @@
 const wppconnect = require('@wppconnect-team/wppconnect');
 const firebasedb = require('./firebase.js');
-const { sendWppMessage, stages } = require('./stages');
+const { sendWppMessage, stages, sendQRCodeImage } = require('./stages');
 let timeout; // Defina isso no escopo global do seu arquivo
 
 wppconnect.create({

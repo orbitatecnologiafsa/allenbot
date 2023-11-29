@@ -13,6 +13,7 @@
     "@wppconnect-team/wppconnect": "^1.27.3",
     "firebase-admin": "^11.9.0",
     "puppeteer": "^21.3.7",
+    "qrcode": "^1.5.3",
     "readline-sync": "^1.4.10"
   }
 }

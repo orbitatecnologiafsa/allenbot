@@ -1,3 +1,6 @@
-2023/10/26-14:45:00.677 500 Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Local Storage\leveldb/MANIFEST-000001
-2023/10/26-14:45:00.687 500 Recovering log #241
-2023/10/26-14:45:00.689 500 Reusing old log C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Local Storage\leveldb/000241.log 
+2023/11/29-09:58:49.487 31e8 Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Local Storage\leveldb/MANIFEST-000001
+2023/11/29-09:58:49.565 31e8 Recovering log #272
+2023/11/29-09:58:49.569 31e8 Reusing old log C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\Local Storage\leveldb/000272.log 
+2023/11/29-10:02:51.512 bc0 Level-0 table #276: started
+2023/11/29-10:02:51.531 bc0 Level-0 table #276: 14032 bytes OK
+2023/11/29-10:02:51.535 bc0 Delete type=0 #272

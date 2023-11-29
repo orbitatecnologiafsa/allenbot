@@ -1,21 +1,29 @@
-2023/10/26-14:45:03.223 500 Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2023/10/26-14:45:03.223 500 Recovering log #408
-2023/10/26-14:45:03.230 500 Reusing old log C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000408.log 
-2023/10/26-14:50:45.632 158 Level-0 table #415: started
-2023/10/26-14:50:45.689 158 Level-0 table #415: 1232958 bytes OK
-2023/10/26-14:50:45.694 158 Delete type=0 #408
-2023/10/26-14:50:46.888 158 Compacting 1@1 + 8@2 files
-2023/10/26-14:50:47.026 158 Generated table #416@1: 48060 keys, 2310332 bytes
-2023/10/26-14:50:47.103 158 Generated table #417@1: 27297 keys, 2179080 bytes
-2023/10/26-14:50:47.234 158 Generated table #418@1: 97784 keys, 1915108 bytes
-2023/10/26-14:50:47.234 158 Compacted 1@1 + 8@2 files => 6404520 bytes
-2023/10/26-14:50:47.237 158 compacted to: files[ 0 0 3 0 0 0 0 ]
-2023/10/26-14:50:47.238 158 Delete type=2 #387
-2023/10/26-14:50:47.238 158 Delete type=2 #392
-2023/10/26-14:50:47.238 158 Delete type=2 #397
-2023/10/26-14:50:47.238 158 Delete type=2 #402
-2023/10/26-14:50:47.238 158 Delete type=2 #407
-2023/10/26-14:50:47.238 158 Delete type=2 #410
-2023/10/26-14:50:47.238 158 Delete type=2 #411
-2023/10/26-14:50:47.238 158 Delete type=2 #412
-2023/10/26-14:50:47.238 158 Delete type=2 #415
+2023/11/29-09:58:51.844 31e8 Reusing MANIFEST C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000882
+2023/11/29-09:58:51.845 31e8 Recovering log #901
+2023/11/29-09:58:51.912 31e8 Reusing old log C:\Users\orbita\Desktop\Chatbot\tokens\whatsbot\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000901.log 
+2023/11/29-10:00:35.095 bc0 Level-0 table #908: started
+2023/11/29-10:00:35.151 bc0 Level-0 table #908: 1146956 bytes OK
+2023/11/29-10:00:35.157 bc0 Delete type=0 #901
+2023/11/29-10:00:35.552 bc0 Compacting 1@1 + 3@2 files
+2023/11/29-10:00:35.680 bc0 Generated table #909@1: 26576 keys, 2206314 bytes
+2023/11/29-10:00:35.837 bc0 Generated table #910@1: 61341 keys, 2202736 bytes
+2023/11/29-10:00:35.947 bc0 Generated table #911@1: 78019 keys, 1543050 bytes
+2023/11/29-10:00:35.947 bc0 Compacted 1@1 + 3@2 files => 5952100 bytes
+2023/11/29-10:00:35.951 bc0 compacted to: files[ 0 0 3 0 0 0 0 ]
+2023/11/29-10:07:50.976 31e8 Level-0 table #913: started
+2023/11/29-10:07:51.030 31e8 Level-0 table #913: 1428761 bytes OK
+2023/11/29-10:07:51.046 31e8 Delete type=2 #903
+2023/11/29-10:07:51.046 31e8 Delete type=2 #904
+2023/11/29-10:07:51.046 31e8 Delete type=2 #905
+2023/11/29-10:07:51.047 31e8 Delete type=0 #907
+2023/11/29-10:07:51.047 31e8 Delete type=2 #908
+2023/11/29-10:07:51.965 bc0 Compacting 1@1 + 3@2 files
+2023/11/29-10:07:52.055 bc0 Generated table #914@1: 27114 keys, 2216850 bytes
+2023/11/29-10:07:52.163 bc0 Generated table #915@1: 50616 keys, 2200950 bytes
+2023/11/29-10:07:52.263 bc0 Generated table #916@1: 95550 keys, 1889666 bytes
+2023/11/29-10:07:52.263 bc0 Compacted 1@1 + 3@2 files => 6307466 bytes
+2023/11/29-10:07:52.268 bc0 compacted to: files[ 0 0 3 0 0 0 0 ]
+2023/11/29-10:07:52.269 bc0 Delete type=2 #909
+2023/11/29-10:07:52.271 bc0 Delete type=2 #910
+2023/11/29-10:07:52.271 bc0 Delete type=2 #911
+2023/11/29-10:07:52.271 bc0 Delete type=2 #913
